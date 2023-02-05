@@ -26,6 +26,7 @@ https://uniekm.github.io/agol
 
 Question:
 Difference between an API Key and an authentication token (using your own words) in your next practical lab. 
+
 Answer:
 Both are types of authentication.
 Token is username/password combined in coded form to hide. It verifies the identity of the user. Used as authentication to access private things on a server. It is passed to the web browser allowing access to the server.
