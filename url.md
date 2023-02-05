@@ -31,3 +31,7 @@ Answer:
 Both are types of authentication.
 Token is username/password combined in coded form to hide. It verifies the identity of the user. Used as authentication to access private things on a server. It is passed to the web browser allowing access to the server.
 API Key is used in programming, it is shared and is locked to particular URL or Application, can be used to allow public access particular thing and track usage and limits access to their services (Google maps/AGOL web map). Users are charged based on usage. It identifies the calling program to provide acces to the resources associated with it (Creating waypoint in Google Maps), like accessing web-based app or service. 
+
+Tutorials URL:
+Display Map: https://uniekm.github.io/agol/tutorials/dispMap.html
+*Only displays basemap
