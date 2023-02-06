@@ -24,17 +24,29 @@
       </style>
         <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css">
         <script src="https://js.arcgis.com/4.25/"></script>
+
         <script>
-            require(["esri/config", "esri/Map", "esri/views/MapView", "esri/Graphic","esri/layers/GraphicsLayer"], function(esriConfig, Map, MapView, Graphic, GraphicsLayer) {
+            require([
+                "esri/config", 
+                "esri/Map", 
+                "esri/views/MapView", 
+                "esri/Graphic",
+                "esri/layers/GraphicsLayer",
+                "esri/Basemap",
+                "esri/layers/VectorTileLayer",
+                "esri/layers/TileLayer",
+                // VectorTileLayer, TileLayer,, Basemap
+                ], function(esriConfig, Map, MapView, Graphic, GraphicsLayer) {
+
                 esriConfig.apiKey = "AAPK234ce7b4e1954f919830518702c1b12383vT0uTC0q38ag5wO4FBc_1kHQHBx8-8a7a6OZljrCrOoiG2Ho8wwmoz2-xu1vVc";
 
                 const map = new Map({
-                    basemap: "osm-dark-gray" // Basemap layer service
+                    basemap: "arcgis-topographic" // Basemap layer service
                 });    
                 const view = new MapView({
                     map: map,
                     center: [-77.233332, 43.995340], // Longitude, latitude
-                    zoom: 30, // Zoom level
+                    zoom: 8, // Zoom level
                     container: "viewDiv" // Div element
                 }); 
 
@@ -47,10 +59,10 @@
                 };
                 const simpleMarkerSymbol = {
                     type: "simple-marker",
-                    color: [255, 0, 0],  // Orange
+                    color: [255, 0, 0],  // red
                     outline: {
-                        color: [255, 255, 255], // White
-                        width: 1
+                        color: [255, 192, 203], // White
+                        width: 2
                     }
                 };
                 const pointGraphic = new Graphic({
@@ -88,7 +100,11 @@
                 const simpleLineSymbol = {
                     type: "simple-line",
                     color: [255, 0, 0], // red
-                    width: 2
+                    width: 2,
+                    // outline: {
+                    //     color: [255, 192, 203], // White
+                    //     width: 2
+                    // }
                 };
                 const polylineGraphic = new Graphic({
                     geometry: polyline,
