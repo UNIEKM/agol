@@ -17,22 +17,23 @@
         <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css">
         <script src="https://js.arcgis.com/4.25/"></script>
         <script>
-            require(["esri/config", "esri/Map", "esri/views/MapView", "esri/Graphic","esri/layers/GraphicsLayer"], function(esriConfig, Map, MapView, Graphic, GraphicsLayer) {
-//                 esriConfig.apiKey = "YOUR_AAPK234ce7b4e1954f919830518702c1b12383vT0uTC0q38ag5wO4FBc_1kHQHBx8-8a7a6OZljrCrOoiG2Ho8wwmoz2-xu1vVc";
+            require(["esri/config", "esri/Map", "esri/views/MapView", "esri/Graphic", "esri/layers/GraphicsLayer"], function(esriConfig, Map, MapView, Graphic, GraphicsLayer) {
+                esriConfig.apiKey = "YOUR_AAPK234ce7b4e1954f919830518702c1b12383vT0uTC0q38ag5wO4FBc_1kHQHBx8-8a7a6OZljrCrOoiG2Ho8wwmoz2-xu1vVc";
 
                 const map = new Map({
                 basemap: "arcgis-topographic" // Basemap layer service
                 });    
                 const view = new MapView({
                     map: map,
-                    center: [-118.805, 34.02700], // Longitude, latitude
+                    center: [-118.80500, 34.02700], // Longitude, latitude
                     zoom: 13, // Zoom level
                     container: "viewDiv" // Div element
-                }); 
+                });   
 
                 const graphicsLayer = new GraphicsLayer();
-                map.add(graphicsLayer);  
-                const point = { //Create a point
+                map.add(graphicsLayer);
+
+               const point = { //Create a point
                     type: "point",
                     longitude: -118.80657463861,
                     latitude: 34.0005930608889
@@ -45,6 +46,7 @@
                         width: 1
                     }
                 };
+
                 const pointGraphic = new Graphic({
                     geometry: point,
                     symbol: simpleMarkerSymbol
@@ -65,52 +67,18 @@
                     color: [226, 119, 40], // Orange
                     width: 2
                 };
-                // const polylineGraphic = new Graphic({
-                //     geometry: polyline,
-                //     symbol: simpleLineSymbol
-                // });
-                // graphicsLayer.add(polylineGraphic);
-                //  // Create a polygon geometry
-                // const polygon = {
-                //     type: "polygon",
-                //     rings: [
-                //         [-118.818984489994, 34.0137559967283], //Longitude, latitude
-                //         [-118.806796597377, 34.0215816298725], //Longitude, latitude
-                //         [-118.791432890735, 34.0163883241613], //Longitude, latitude
-                //         [-118.79596686535, 34.008564864635],   //Longitude, latitude
-                //         [-118.808558110679, 34.0035027131376]  //Longitude, latitude
-                //     ]
-                // };
+                const polylineGraphic = new Graphic({
+                    geometry: polyline,
+                    symbol: simpleLineSymbol
+                });
+                graphicsLayer.add(polylineGraphic);
 
-                // const simpleFillSymbol = {
-                //     type: "simple-fill",
-                //     color: [227, 139, 79, 0.8],  // Orange, opacity 80%
-                //     outline: {
-                //         color: [255, 255, 255],
-                //         width: 1
-                //     }
-                // };
-                // const polygonGraphic = new Graphic({
-                //     geometry: polygon,
-                //     symbol: simpleFillSymbol,
-                //     attributes: attributes,
-                //     popupTemplate: popupTemplate
 
-                // });
-                // graphicsLayer.add(polygonGraphic);
-                // const popupTemplate = {
-                //     title: "{Name}",
-                //     content: "{Description}"
-                // }
-                // const attributes = {
-                //     Name: "Graphic",
-                //     Description: "I am a polygon"
-                // }
+                });
+        </script>
+    </head>
+    <body>
+      <div id="viewDiv"></div>
+    </body>
+  </html>
 
- });
-</script>
-</head>
-<body>
-  <div id="viewDiv"></div>
-</body>
-</html>
