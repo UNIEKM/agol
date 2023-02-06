@@ -30,8 +30,8 @@
                 });    
                 const view = new MapView({
                     map: map,
-                    center: [-118.805, 34.027], // Longitude, latitude
-                    zoom: 13, // Zoom level
+                    center: [-77.233332, 43.995340]], // Longitude, latitude
+                    zoom: 8, // Zoom level
                     container: "viewDiv" // Div element
                 }); 
                 const basemapToggle = new BasemapToggle({
@@ -48,14 +48,78 @@
                     }
                   }
                 });
+              
+               const graphicsLayer = new GraphicsLayer();
+                map.add(graphicsLayer);  
+                const point = { //Create a point
+                    type: "point",
+                    longitude: -77.02330696271494,
+                    latitude: 43.996124249421285
+                };
+                const simpleMarkerSymbol = {
+                    type: "simple-marker",
+                    color: [255, 0, 0],  // red
+                    outline: {
+                        color: [255, 192, 203], // White
+                        width: 2
+                    }
+                };
+                const pointGraphic = new Graphic({
+                    geometry: point,
+                    symbol: simpleMarkerSymbol
+                });
+                graphicsLayer.add(pointGraphic);
 
-                view.ui.add(basemapGallery, "top-right"); // Add to the view
+                    // Create a line geometry
+                const polyline = {
+                    type: "polyline",
+                    paths: [
+                        [-77.34106531560904, 44.115895945465354],
+                        [-77.3986240534709, 44.12278276556958],
+                        [-77.43939482612355, 44.102980994210725],
+                        [-77.47177161617107, 44.05387844314768],
+                        [-77.46217849319343, 44.01422211200378],
+                        [-77.42140772054164, 43.98920774314473],
+                        [-77.35305671933031, 43.97108730601852],
+                        [-77.29190056035142, 43.94864481700367],
+                        [-77.23554096286134, 43.9227391038512],
+                        [-77.19596933058136, 43.90891810894186],
+                        [-77.17318566351062, 43.959003942225166],
+                        [-77.15160113681254, 44.000422385147004],
+                        [-77.12282176788197, 44.04008794656738],
+                        [-77.09404239895065, 44.07800408654944],
+                        [-77.10003810564041, 44.113313183625195],
+                        [-77.14681842104451, 44.14603475658157],
+                        [-77.21876684337205, 44.14775565844525],
+                        [-77.26553331788527, 44.14087174996365],
+                        [-77.29551182718843, 44.10644016665336],
+                        [-77.34347744207345, 44.115910852587575]
+                    ]
+                };
+                const simpleLineSymbol = {
+                    type: "simple-line",
+                    color: [255, 0, 0], // red
+                    width: 2,
+                    // outline: {
+                    //     color: [255, 192, 203], // White
+                    //     width: 2
+                    // }
+                };
+                const polylineGraphic = new Graphic({
+                    geometry: polyline,
+                    symbol: simpleLineSymbol
+                });
+                graphicsLayer.add(polylineGraphic);
+
+//                 view.ui.add(basemapGallery, "top-right"); // Add to the view
 
 
             });
         </script>
     </head>
     <body>
-      <div id="viewDiv"></div>
+        <div class="top"></div>
+        <div id="viewDiv"></div>
+        <div class="top"></div>
     </body>
 </html>
