@@ -73,7 +73,7 @@
                 });
                 graphicsLayer.add(polylineGraphic);
 
-                // Create a polygon geometry
+                 // Create a polygon geometry
                 const polygon = {
                     type: "polygon",
                     rings: [
@@ -93,25 +93,12 @@
                         width: 1
                     }
                 };
-
                 const polygonGraphic = new Graphic({
                     geometry: polygon,
                     symbol: simpleFillSymbol,
 
-                    attributes: attributes,
-                    popupTemplate: popupTemplate
-
                 });
-                
-                // graphicsLayer.add(polygonGraphic);
-                // const popupTemplate = {
-                //     title: "{Name}",
-                //     content: "{Description}"
-                // }
-                // const attributes = {
-                //     Name: "Graphic",
-                //     Description: "I am a polygon"
-                // }
+                graphicsLayer.add(polygonGraphic);
 
                 
 
