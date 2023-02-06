@@ -1,0 +1,50 @@
+<html>
+    <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+      <title>ArcGIS Maps SDK for JavaScript Tutorials: Display a map</title>
+  
+      <style>
+        html,
+        body,
+        #viewDiv {
+          padding: 0;
+          margin: 0;
+          height: 100%;
+          width: 100%;
+        }
+      </style>
+        <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css">
+        <script src="https://js.arcgis.com/4.25/"></script>
+        <script>
+               require(["esri/config", "esri/Map", "esri/WebMap", "esri/views/MapView", "esri/widgets/ScaleBar", "esri/widgets/Legend"], function(esriConfig, WebMap, MapView, ScaleBar, Legend) {
+                esriConfig.apiKey = "YOUR_AAPK234ce7b4e1954f919830518702c1b12383vT0uTC0q38ag5wO4FBc_1kHQHBx8-8a7a6OZljrCrOoiG2Ho8wwmoz2-xu1vVc";
+
+                const webmap = new WebMap({
+                    portalItem: {
+                    id: "5b132c919ea8434bacd07c1a9a260cad"
+                    }
+                });  
+                const view = new MapView({
+                    container: "viewDiv",
+                    map: webmap
+                });  
+                const scalebar = new ScaleBar({
+                    view: view
+                });
+
+                view.ui.add(scalebar, "bottom-left");
+                const legend = new Legend ({
+                    view: view
+                });
+                view.ui.add(legend, "top-right");
+
+
+
+    });
+    </script>
+</head>
+<body>
+    <div id="viewDiv"></div>
+</body>
+</html>
