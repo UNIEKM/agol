@@ -1,57 +1,47 @@
-<!--
-
-To run this demo, you need to replace 'YOUR_API_KEY' with an API key from the ArcGIS Developers dashboard.
-
-Sign up for a free account and get an API key.
-
-https://developers.arcgis.com/documentation/mapping-apis-and-services/get-started/
-
--->
-
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>ArcGIS Maps SDK for JavaScript Tutorials: Display a map</title>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>ArcGIS Maps SDK for JavaScript Tutorials: Display a map</title>
 
-    <style>
-      html,
-      body,
-      #viewDiv {
-        padding: 0;
-        margin: 0;
-        height: 100%;
-        width: 100%;
-      }
-    </style>
+<style>
+    html,
+    body,
+    #viewDiv {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    }
+</style>
 
-    <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css">
-    <script src="https://js.arcgis.com/4.25/"></script>
+<link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css">
+<script src="https://js.arcgis.com/4.25/"></script>
 
-    <script>
-      require(["esri/config", "esri/WebMap", "esri/views/MapView", "esri/widgets/ScaleBar", "esri/widgets/Legend"], function(esriConfig, WebMap, MapView, ScaleBar, Legend) {
+<script>
+    require(["esri/config", "esri/WebMap", "esri/views/MapView", "esri/widgets/ScaleBar", "esri/widgets/Legend"], function(esriConfig, WebMap, MapView, ScaleBar, Legend) {
 
-        esriConfig.apiKey = "AAPK234ce7b4e1954f919830518702c1b12383vT0uTC0q38ag5wO4FBc_1kHQHBx8-8a7a6OZljrCrOoiG2Ho8wwmoz2-xu1vVc";
+    esriConfig.apiKey = "AAPK234ce7b4e1954f919830518702c1b12383vT0uTC0q38ag5wO4FBc_1kHQHBx8-8a7a6OZljrCrOoiG2Ho8wwmoz2-xu1vVc";
 
-        const webmap = new WebMap({
-            portalItem: {
-            id: "41281c51f9de45edaf1c8ed44bb10e30"
-            }
-        });
-        // const map = new Map({
-        //   basemap: "arcgis-topographic" // Basemap layer service
-        // });
+    const webmap = new WebMap({
+        portalItem: {
+        id: "41281c51f9de45edaf1c8ed44bb10e30"
+        }
+    });
+    // const map = new Map({
+    //   basemap: "arcgis-topographic" // Basemap layer service
+    // });
 
-        const view = new MapView({
-        container: "viewDiv",
+    const view = new MapView({
+    container: "viewDiv",
 
-        map: webmap,
-        // center: [-118.80500,34.02700],
-        // zoom: 13
-          
-        });
+    map: webmap,
+    // center: [-118.80500,34.02700],
+    // zoom: 13
+        
+    });
 
-});
+ });
 </script>
 
 </head>
