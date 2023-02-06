@@ -13,30 +13,40 @@
           height: 100%;
           width: 100%;
         }
+        .top {
+            width: 100%;
+            height: 50px;
+            background-color: #FA8072;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
       </style>
-        <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css">
-        <script src="https://js.arcgis.com/4.25/"></script>
+        <link rel="stylesheet" href="https://js.arcgis.com/4.24/esri/themes/light/main.css">
+        <script src="https://js.arcgis.com/4.24/"></script>
         <script>
             require(["esri/config",
                      "esri/Map", 
                      "esri/views/MapView",
                      "esri/widgets/BasemapToggle",
-                     "esri/widgets/BasemapGallery"
-                    ], function(esriConfig, Map, MapView, BasemapToggle, BasemapGallery) {
+                     "esri/widgets/BasemapGallery",
+                     "esri/Graphic",
+                     "esri/layers/GraphicsLayer"
+                    ], function(esriConfig, Map, MapView, BasemapToggle, BasemapGallery, Graphic, GraphicsLayer) {
                 esriConfig.apiKey = "AAPK234ce7b4e1954f919830518702c1b12383vT0uTC0q38ag5wO4FBc_1kHQHBx8-8a7a6OZljrCrOoiG2Ho8wwmoz2-xu1vVc";
-               
+                
                 const map = new Map({
-                basemap: "arcgis-streets" // Basemap layer service
+                basemap: "dark-gray" // Basemap layer service
                 });    
                 const view = new MapView({
                     map: map,
                     center: [-77.233332, 43.995340], // Longitude, latitude
-                    zoom: 9, // Zoom level
+                    zoom: 10, // Zoom level
                     container: "viewDiv" // Div element
                 }); 
                 const basemapToggle = new BasemapToggle({
                     view: view,
-                    nextBasemap: "arcgis-imagery"
+                    nextBasemap: "satellite"
                 });  
 
                 view.ui.add(basemapToggle,"bottom-left");
@@ -48,14 +58,147 @@
                     }
                   }
                 });
+                const graphicsLayer = new GraphicsLayer();
+                map.add(graphicsLayer); 
+                const polygon = {
+                    type: "polygon",
+                    rings: [
+                    [
+              -77.14771500847436,
+              43.79441576780505
+            ],
+            [
+              -77.11435657598153,
+              43.811838848231645
+            ],
+            [
+              -77.06519678072844,
+              43.83273983728691
+            ],
+            [
+              -76.97258323788603,
+              43.87736743508569
+            ],
+            [
+              -76.93000734378315,
+              43.90393821364222
+            ],
+            [
+              -76.9071831356991,
+              43.92670372913176
+            ],
+            [
+              -76.8979656627166,
+              43.952304527242916
+            ],
+            [
+              -76.90046492146979,
+              43.978983199017165
+            ],
+            [
+              -76.92109448634693,
+              44.01373400039557
+            ],
+            [
+              -76.94524799383032,
+              44.031732003489054
+            ],
+            [
+              -76.99401753851613,
+              44.0525768534186
+            ],
+            [
+              -77.04537196748558,
+              44.0538386701802
+            ],
+            [
+              -77.07697469300555,
+              44.04468988954207
+            ],
+            [
+              -77.11384453944522,
+              44.026703685030185
+            ],
+            [
+              -77.13886336381498,
+              44.00839632934961
+            ],
+            [
+              -77.16783252887454,
+              44.02607249099819
+            ],
+            [
+              -77.20338559508428,
+              44.04342787786345
+            ],
+            [
+              -77.24683934267358,
+              44.05352321851015
+            ],
+            [
+              -77.29994947861645,
+              44.044058887063585
+            ],
+            [
+              -77.33462469133919,
+              44.02386325895702
+            ],
+            [
+              -77.3513039075859,
+              44.00366074846124
+            ],
+            [
+              -77.35393746804576,
+              43.93985143445914
+            ],
+            [
+              -77.32584615647265,
+              43.904442469679395
+            ],
+            [
+              -77.25210646359386,
+              43.85572073319847
+            ],
+            [
+              -77.14771500847436,
+              43.79441576780505
+            ]
+                    ]
+                };
 
-                view.ui.add(basemapGallery, "top-right"); // Add to the view
+                const simpleFillSymbol = {
+                    type: "simple-fill",
+                    color: [250,128,114, 0.3],  // pink, opacity 80%
+                    outline: {
+                        color: [255, 0, 0],
+                        width: 1
+                    }
+                };
+                const popupTemplate = {
+                    title: "{Name}",
+                    content: "{Description}"
+                }
+                const attributes = {
+                    Name: "PEC",
+                    Description: "Fall in Love with Prince Edward County"
+                }
 
+                const polygonGraphic = new Graphic({
+                    geometry: polygon,
+                    symbol: simpleFillSymbol,
+                    attributes: attributes,
+                    popupTemplate: popupTemplate
+
+                });
+                graphicsLayer.add(polygonGraphic);
+                
 
             });
         </script>
     </head>
     <body>
+      <!-- <div class="top"></div> -->
       <div id="viewDiv"></div>
+      <!-- <div class="top"></div> -->
     </body>
 </html>
