@@ -34,4 +34,6 @@ API Key is used in programming, it is shared and is locked to particular URL or 
 
 Tutorials URL:
 Display Map: https://uniekm.github.io/agol/tutorials/dispMap.html
-*Only displays basemap
+Only displays basemap
+Display Point/Polygon/Polyline: https://uniekm.github.io/agol/tutorials/addPoint.html
+
