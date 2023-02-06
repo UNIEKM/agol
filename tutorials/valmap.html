@@ -21,8 +21,10 @@
                      "esri/Map", 
                      "esri/views/MapView",
                      "esri/widgets/BasemapToggle",
+                     "esri/Graphic",
+                     "esri/layers/GraphicsLayer",
                      "esri/widgets/BasemapGallery"
-                    ], function(esriConfig, Map, MapView, BasemapToggle, BasemapGallery) {
+                    ], function(esriConfig, Map, MapView, BasemapToggle, BasemapGallery, Graphic, GraphicsLayer) {
                 esriConfig.apiKey = "AAPK234ce7b4e1954f919830518702c1b12383vT0uTC0q38ag5wO4FBc_1kHQHBx8-8a7a6OZljrCrOoiG2Ho8wwmoz2-xu1vVc";
 
                 const map = new Map({
@@ -114,12 +116,12 @@
 //                 view.ui.add(basemapGallery, "top-right"); // Add to the view
 
 
-            });
-        </script>
-    </head>
-    <body>
-        <div class="top"></div>
-        <div id="viewDiv"></div>
-        <div class="top"></div>
-    </body>
+          });
+      </script>
+  </head>
+  <body>
+      <div class="top"></div>
+      <div id="viewDiv"></div>
+      <div class="top"></div>
+  </body>
 </html>
