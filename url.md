@@ -45,3 +45,6 @@ Display WebMap: https://uniekm.github.io/agol/tutorials/webmap.html
 
 *Note API Key must be commented out to work?
 
+Enhanced Tutorial (Valentines themed):
+
+https://uniekm.github.io/agol/tutorials/valmap.html
