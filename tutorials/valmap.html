@@ -1,4 +1,4 @@
-  <html>
+ <html>
     <head>
       <meta charset="utf-8" />
       <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
@@ -24,9 +24,9 @@
                      "esri/widgets/BasemapGallery"
                     ], function(esriConfig, Map, MapView, BasemapToggle, BasemapGallery) {
                 esriConfig.apiKey = "AAPK234ce7b4e1954f919830518702c1b12383vT0uTC0q38ag5wO4FBc_1kHQHBx8-8a7a6OZljrCrOoiG2Ho8wwmoz2-xu1vVc";
-
+                const basemapEnum = "arcgis-streets"
                 const map = new Map({
-                basemap: "arcgis-topographic" // Basemap layer service
+                basemap: "basemapEnum" // Basemap layer service
                 });    
                 const view = new MapView({
                     map: map,
